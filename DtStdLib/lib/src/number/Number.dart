@@ -1,0 +1,2 @@
+final int64MaxValue= 9223372036854775807;
+final int64MinValue= -9223372036854775808;

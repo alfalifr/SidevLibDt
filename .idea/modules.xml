@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DtMath/DtMath.iml" filepath="$PROJECT_DIR$/DtMath/DtMath.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DtStdLib/DtStdLib.iml" filepath="$PROJECT_DIR$/DtStdLib/DtStdLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SidevLibDt.iml" filepath="$PROJECT_DIR$/SidevLibDt.iml" />
+    </modules>
+  </component>
+</project>
