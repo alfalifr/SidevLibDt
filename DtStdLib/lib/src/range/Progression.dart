@@ -1,4 +1,4 @@
-import 'package:DtStdLib/src/exception/IllegalArgumentExc.dart';
+import 'package:DtStdLib/src/exception/IllegalArgExc.dart';
 
 import 'RangeIterator.dart';
 
@@ -6,12 +6,18 @@ abstract class Progression<T extends num> extends Iterable<T> {
   T first;
   T last;
   T step;
+
+  @override
+  bool contains(Object element) => element is num ? {
+    step > 0 ? first <= element && element <= last
+      : last <= element && element <= first
+  } : false;
 }
 
 
 class IntProgression extends Progression<int> {
   IntProgression(this.first, this.last, this.step){
-    if(step == 0) throw IllegalArgumentExc("step", "`step` gak boleh 0 pada [IntProgression]");
+    if(step == 0) throw IllegalArgExc("step", "`step` gak boleh 0 pada [IntProgression]");
   }
   int first;
   int last;
@@ -22,7 +28,7 @@ class IntProgression extends Progression<int> {
 }
 class FloatProgression extends Progression<double> {
   FloatProgression(this.first, this.last, this.step){
-    if(step == 0) throw IllegalArgumentExc("step", "`step` gak boleh 0 pada [FloatProgression]");
+    if(step == 0) throw IllegalArgExc("step", "`step` gak boleh 0 pada [FloatProgression]");
   }
   double first;
   double last;

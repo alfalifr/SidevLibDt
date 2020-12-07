@@ -1,6 +1,9 @@
 import 'dart:math';
-import 'package:DtStdLib/DtStdLib.dart';
+
 import 'package:DtStdLib/src/exception/ElementExc.dart';
+import '../collection/_IterableFun.dart';
+import '../collection/List.dart';
+import '../collection/Collection.dart';
 
 import '../number/Numbers.dart';
 

@@ -1,5 +1,5 @@
 import '_NumberFun.dart';
-import '../scope/Scope.dart';
+import '../scope/_ScopeFun.dart';
 
 extension Digit_NumExt<T extends num> on T {
   int getDigitBehindDecimal() {

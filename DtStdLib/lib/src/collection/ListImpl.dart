@@ -1,8 +1,8 @@
 import 'List.dart';
 import '../range/_ProgressionFun.dart';
 
-List_<E> listOf<E>(Iterable<E> e) => _MutableListImpl(e.toList());
-MutableList<E> mutableListOf<E>(Iterable<E> e) => _MutableListImpl(e.toList());
+List_<E> listOf<E>([Iterable<E> e]) => _MutableListImpl(e?.toList());
+MutableList<E> mutableListOf<E>([Iterable<E> e]) => _MutableListImpl(e?.toList());
 
 List<E> toSimpleList<E>(List_<E> e) {
   if(e is _MutableListImpl){
@@ -10,16 +10,19 @@ List<E> toSimpleList<E>(List_<E> e) {
   }
 
   var list= [];
-  for(var e in e){
-    list.add(e);
+  list.addAll(e);
+/*
+  for(final e2 in e){
+    list.add(e2);
   }
+ */
   return list;
 }
 
 
 class _MutableListImpl<E> extends MutableList<E> {
   _MutableListImpl([this.content]){
-    content ??= [];
+    content ??= <E>[];
   }
 
   List<E> content;
@@ -41,16 +44,22 @@ class _MutableListImpl<E> extends MutableList<E> {
 
   @override
   bool add(E e, [int i]) {
-    if(i == null){
+//    content.a
+//    content.add(e, i);
+//    var result = <E>[]..length; // = length;
+    if(i == null || i >= size){
       content.add(e);
     } else {
       var afterI= content.sublist(i);
       content[i]= e;
+//      print("List.add() i= $i e= $e content= $content afterI= $afterI");
 
       var u= 0;
-      for(i+1; i <= size; i++){
+      for(i++; i < size; i++){
         content[i]= afterI[u++];
       }
+//      print("List.add() i= $i e= $e AFTER content= $content afterI= $afterI");
+      content.add(afterI.last);
     }
     return true;
   }

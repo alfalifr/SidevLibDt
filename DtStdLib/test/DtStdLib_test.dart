@@ -1,4 +1,5 @@
 import 'package:DtStdLib/DtStdLib.dart';
+import 'package:DtStdLib/src/val/Enums.dart';
 import 'package:test/test.dart';
 
 void main() {
@@ -18,6 +19,10 @@ void main() {
       for(var i in 0.until(10)){
         print("i= $i");
       }
+      print("until() 2");
+      for(var i in 1.until(2)){
+        print("i= $i");
+      }
       print("ranges()");
       for(var i in 0.ranges(10)){
         print("i= $i");
@@ -27,6 +32,8 @@ void main() {
     test('List Test', (){
       var list= listOf([1,2,3,4]);
       var mutList= list.toMutableList();
+      
+
 
       print("list= $list");
       print("mut list before= $mutList");
@@ -59,5 +66,23 @@ void main() {
       var dotInd= str.indexOf('.');
       print(str.length - dotInd -1);
     });
+  });
+
+  test('Sort Test', (){
+    final ls= [1, 2, 4, 1, 5, 1, 5, 12, 42, 23, 11, 10, 15, 14].toMutableList(); //[1,3,1,5,6,7,1,12,2,3,31,21,42].toMutableList();
+    print("ls= $ls");
+
+    final ind1= ls.binarySearch(42);
+    print("ind1= $ind1");
+
+    ls.add(101, 3);
+    print("ls= $ls");
+    ls.quickSortDescendingBy((it) => it);
+    print("ls= $ls");
+    ls.quickSort();
+    print("ls= $ls");
+
+    final ind2= ls.binarySearch(42);
+    print("ind2= $ind2");
   });
 }

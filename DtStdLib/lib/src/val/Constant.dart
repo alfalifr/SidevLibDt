@@ -1,3 +1,0 @@
-enum SortOrder {
-  ASCEND, DESCEND
-}

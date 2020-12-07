@@ -1,13 +1,9 @@
-import 'package:DtStdLib/src/exception/IllegalArgumentExc.dart';
+import 'package:DtStdLib/src/exception/IllegalArgExc.dart';
 
 abstract class ProgressionIterator<T extends num> extends Iterator<T> {
   ProgressionIterator(this.first, this.last, this.step){
-    if(step == 0) throw IllegalArgumentExc("step", "`step` gak boleh 0 pada [ProgressionIterator]");
-    if(step > 0) {
-      checkLimitFun = (curr, last) => curr <= last;
-    } else {
-      checkLimitFun = (curr, last) => curr >= last;
-    }
+    if(step == 0) throw IllegalArgExc("step", "`step` gak boleh 0 pada [ProgressionIterator]");
+    checkLimitFun = step > 0 ? (curr, last) => curr <= last : (curr, last) => curr >= last;
   }
 
   final T first;
@@ -18,10 +14,12 @@ abstract class ProgressionIterator<T extends num> extends Iterator<T> {
   bool Function(T curr, T last) checkLimitFun;
 
   @override
-  bool moveNext() => checkLimitFun((_current ?? first) + step, last);
+  bool moveNext() => checkLimitFun(_current= _current != null ? _current +step : first, last);
 
   @override
-  T get current {
+  T get current => _current;
+/*
+  {
     if(_current == null){
       _current = first;
     } else {
@@ -29,6 +27,7 @@ abstract class ProgressionIterator<T extends num> extends Iterator<T> {
     }
     return _current;
   }
+ */
 }
 
 class IntProgressionIterator extends ProgressionIterator<int> {

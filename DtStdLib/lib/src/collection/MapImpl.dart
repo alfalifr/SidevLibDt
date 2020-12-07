@@ -2,7 +2,7 @@ import '_IterableFun.dart';
 import 'Collection.dart';
 import 'Map.dart';
 import '../iterator/_IteratorFun.dart';
-import '../scope/Scope.dart';
+import '../scope/_ScopeFun.dart';
 
 Map_<K, V> mapOfEntries<K, V>(Iterable<MapEntry<K, V>> entries) => <K, V>{}.let((m){
   m.addEntries(entries);

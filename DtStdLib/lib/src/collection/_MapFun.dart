@@ -1,4 +1,4 @@
-import '_MapImpl.dart';
+import 'MapImpl.dart';
 import 'Map.dart';
 
 extension Object_MapEntryExt<K, V> on K {

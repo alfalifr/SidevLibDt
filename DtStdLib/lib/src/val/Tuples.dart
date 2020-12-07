@@ -1,4 +1,4 @@
-import 'package:DtStdLib/src/scope/Scope.dart';
+import 'package:DtStdLib/src/scope/_ScopeFun.dart';
 
 abstract class Tuple {
   int get n;

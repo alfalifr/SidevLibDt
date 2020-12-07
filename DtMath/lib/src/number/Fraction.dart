@@ -3,8 +3,8 @@ import 'dart:math';
 import 'Number.dart';
 import '_NumberFun.dart';
 import '../Factorization.dart';
-import 'package:DtStdLib/src/val/Tuple.dart';
-import 'package:DtStdLib/src/scope/Scope.dart';
+import 'package:DtStdLib/src/val/Tuples.dart';
+import 'package:DtStdLib/src/scope/_ScopeFun.dart';
 
 abstract class Fraction<T extends num> extends Number<Fraction<T>> {
   T numerator;

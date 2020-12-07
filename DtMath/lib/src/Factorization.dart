@@ -72,7 +72,7 @@ extension Factorization_NumExt<T extends num> on num {
 
   bool isFactorOf(num other) => other % this == 0;
 
-  List<num> primeFactors() {
+  List_<num> primeFactors() {
     final factors= <num>[]; //ArrayList<Number>()
     final factor= 10.pow(getDigitBehindDecimal());
     final vals= (this * factor).toInt();
@@ -88,7 +88,7 @@ extension Factorization_NumExt<T extends num> on num {
         primeItr= primeItr.nextPrime();
       }
     }
-    return factors;
+    return factors.toList_();
   }
 
   num kpk(num other) {
@@ -146,14 +146,7 @@ num fpb(List<num> numbers) {
 }
 
 
-int factorialInt(int n) {
-  if(n <= 1) {
-    return 1;
-  } else {
-    return n * factorial(n-1);
-  }
-}
-
+int factorialInt(int n) => n <= 1 ? 1 : n * factorial(n-1);
 num factorial(num n) => n <= 1 ? 1 : n * factorial(n-1);
 
 

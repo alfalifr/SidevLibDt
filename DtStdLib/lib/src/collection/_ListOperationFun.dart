@@ -1,4 +1,4 @@
-import '_ListImpl.dart';
+import 'ListImpl.dart';
 import 'List.dart';
 import '_IterableFun.dart';
 import '../exception/ElementExc.dart';
@@ -92,7 +92,7 @@ extension ListOperation_Iterable<T> on Iterable<T> {
     return res;
   }
 
-  R scan<R>(R init, R Function(R acc, T) combine){
+  R fold<R>(R init, R Function(R acc, T) combine){
     if(isEmpty) throw ElementExc.noElement();
     final itr= iterator;
     var res= init;
@@ -101,7 +101,7 @@ extension ListOperation_Iterable<T> on Iterable<T> {
     }
     return res;
   }
-  R scanRight<R>(R init, R Function(R acc, T) combine){
+  R foldRight<R>(R init, R Function(R acc, T) combine){
     if(isEmpty) throw ElementExc.noElement();
     final list= toList_();
 
@@ -112,5 +112,31 @@ extension ListOperation_Iterable<T> on Iterable<T> {
       res= combine(res, list[i]);
     }
     return res;
+  }
+
+  List_<R> scan<R>(R init, R Function(R acc, T) combine){
+    if(isEmpty) throw ElementExc.noElement();
+    final itr= iterator;
+    var res= init;
+    final list= mutableListOf<R>([init]);
+    while(itr.moveNext()) {
+      res= combine(res, itr.current);
+      list.add(res);
+    }
+    return list;
+  }
+  List_<R> scanRight<R>(R init, R Function(R acc, T) combine){
+    if(isEmpty) throw ElementExc.noElement();
+    final list= toList_();
+
+    final lastInd= list.size -1;
+    var res= init;
+    final resList= mutableListOf<R>([init]);
+
+    for(var i in lastInd.downTo(0)){
+      res= combine(res, list[i]);
+      resList.add(res);
+    }
+    return resList;
   }
 }
