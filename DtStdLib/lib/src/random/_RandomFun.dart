@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:DtStdLib/DtStdLib.dart';
 import 'package:DtStdLib/src/exception/ElementExc.dart';
 
-import '../number/Number.dart';
+import '../number/Numbers.dart';
 
 int randomInt([int max, Random random]) => (random ?? Random()).nextInt(max ?? int64MaxValue);
 double randomDouble([Random random]) => (random ?? Random()).nextDouble();

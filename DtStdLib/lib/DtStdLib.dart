@@ -29,7 +29,10 @@ export 'src/fun/VarargFun.dart';
 export 'src/iterator/_IteratorFun.dart';
 export 'src/iterator/SimpleIterator.dart';
 
-export 'src/number/Number.dart';
+export 'src/number/_NumberFun.dart';
+export 'src/number/_DigitFun.dart';
+export 'src/number/_OpFun.dart';
+export 'src/number/Numbers.dart';
 export 'src/random/_RandomFun.dart';
 
 export 'src/range/_ProgressionFun.dart';
